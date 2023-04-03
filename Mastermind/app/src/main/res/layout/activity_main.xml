@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:gravity="center_horizontal"
+    android:background="@color/black"
+
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_margin="0dp"
+        android:gravity="top"
+
+
+        >
+    <TextView
+        android:paddingTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Master"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+
+        android:textSize="50dp"
+
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mind"
+        android:textSize="50dp"
+        android:textColor="@color/teal_700"
+        android:textAlignment="center"   />
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    <Button
+        android:paddingHorizontal="80dp"
+        android:layout_margin="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jouer"
+        android:background="@color/teal_200"
+        android:textSize="20dp"
+        />
+    <Button
+        android:paddingHorizontal="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QUITTER"
+        android:background="@color/teal_200"
+        android:textSize="20dp"
+        />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
