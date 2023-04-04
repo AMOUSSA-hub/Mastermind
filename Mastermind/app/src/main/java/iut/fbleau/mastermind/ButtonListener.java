@@ -1,21 +1,32 @@
 package iut.fbleau.mastermind;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
 public class ButtonListener implements View.OnClickListener{
 
     Button button;
+    Activity activity;
 
-    public ButtonListener(Button button){
+    public ButtonListener(Button button,Activity activity){
         this.button = button;
+        this.activity = activity;
     }
 
     @Override
     public void onClick(View view) {
-        if(this.button.getId() == R.id.btn_quitter){
+        if(this.button.getId() == R.id.btn_quitter1){
             ((Activity) view.getContext()).finish();
+        }
+        else if(this.button.getId() == R.id.btn_jouer1){
+            Intent intent = new Intent(activity, GameModeActivity.class);
+            activity.startActivity(intent);
+        }
+        else if(this.button.getId() == R.id.btn_retour2){
+            Intent intent = new Intent(activity, MainActivity.class);
+            activity.startActivity(intent);
         }
     }
 

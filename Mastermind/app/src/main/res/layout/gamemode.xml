@@ -8,41 +8,41 @@
     tools:context=".MainActivity"
     android:gravity="center_horizontal"
     android:background="@drawable/background">
-   >
+    >
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:orientation="vertical"
         android:layout_margin="0dp"
         android:gravity="top"
 
 
         >
-    <TextView
-        android:paddingTop="40dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Master"
-        android:textColor="@color/white"
-        android:textAlignment="center"
+        <TextView
+            android:paddingTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Master"
+            android:textColor="@color/white"
+            android:textAlignment="center"
 
-        android:textSize="50dp"
-
-
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mind"
-        android:textSize="50dp"
-        android:textColor="@color/teal_700"
-        android:textAlignment="center"   />
+            android:textSize="50dp"
 
 
-</LinearLayout>
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mind"
+            android:textSize="50dp"
+            android:textColor="@color/teal_700"
+            android:textAlignment="center"   />
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,29 +50,43 @@
         android:layout_weight="3"
         android:orientation="vertical"
         android:gravity="center"
+        android:layout_margin="0dp"
         >
 
         <Button
-            android:id="@+id/btn_jouer1"
+            android:id="@+id/btn_JRobot"
             android:layout_width="wrap_content"
-            android:layout_height="75dp"
-            android:layout_margin="15dp"
+            android:layout_height="wrap_content"
             android:backgroundTint="@color/teal_200"
             android:paddingHorizontal="80dp"
-            android:text="Jouer"
+            android:text="Jouer contre un robot"
 
             android:textSize="20dp" />
 
         <Button
-            android:id="@+id/btn_quitter1"
+            android:id="@+id/btn_JHotSeat"
+            android:layout_margin="15dp"
             android:layout_width="wrap_content"
             android:layout_height="75dp"
             android:backgroundTint="@color/teal_200"
             android:paddingHorizontal="70dp"
-            android:text="QUITTER"
+            android:text="Hot seat (2 joueurs)"
             android:textSize="20dp" />
 
+        <Button
+            android:id="@+id/btn_retour2"
+            android:paddingHorizontal="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:text="RETOUR"
+            android:backgroundTint="@color/teal_200"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
+            />
+
+
     </LinearLayout>
+
 
 
 
