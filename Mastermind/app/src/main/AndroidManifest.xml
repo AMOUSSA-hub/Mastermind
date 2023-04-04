@@ -20,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".GameModeActivity" />
+        <activity android:name=".ChoixCouleurActivity" />
     </application>
 
 </manifest>
