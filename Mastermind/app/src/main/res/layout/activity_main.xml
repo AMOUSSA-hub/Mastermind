@@ -14,7 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="vertical"
         android:layout_margin="0dp"
         android:gravity="top"
@@ -46,26 +46,27 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
         android:orientation="vertical"
         android:gravity="center"
         >
-    <Button
-        android:paddingHorizontal="80dp"
-        android:layout_margin="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jouer"
-        android:background="@color/teal_200"
-        android:textSize="20dp"
-        />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_margin="50dp"
+            android:backgroundTint="@color/teal_200"
+            android:paddingHorizontal="80dp"
+            android:text="Jouer"
+
+            android:textSize="20dp" />
     <Button
         android:paddingHorizontal="70dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="75dp"
         android:text="QUITTER"
-        android:background="@color/teal_200"
+        android:backgroundTint="@color/teal_200"
         android:textSize="20dp"
         />
 
