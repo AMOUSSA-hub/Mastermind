@@ -28,6 +28,15 @@ public class ButtonListener implements View.OnClickListener{
             Intent intent = new Intent(activity, MainActivity.class);
             activity.startActivity(intent);
         }
+        else if(this.button.getId() == R.id.btn_retour3){
+            Intent intent = new Intent(activity, GameModeActivity.class);
+            activity.startActivity(intent);
+        }
+                else if(this.button.getId() == R.id.btn_JHotSeat){
+            Intent intent = new Intent(activity, ChoixCouleurActivity.class);
+            activity.startActivity(intent);
+        }
+
     }
 
 }

@@ -6,19 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class GameModeActivity extends AppCompatActivity {
+public class ChoixCouleurActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.gamemode);
+        setContentView(R.layout.choixcouleur);
 
-        Button btnRetour = (Button) findViewById(R.id.btn_retour2);
+        Button btnRetour = (Button) findViewById(R.id.btn_retour3);
         btnRetour.setOnClickListener(new ButtonListener(btnRetour,this));
-
-        Button btnJouerA2 = (Button) findViewById(R.id.btn_JHotSeat);
-        btnJouerA2.setOnClickListener(new ButtonListener(btnJouerA2,this));
-
     }
 
 
