@@ -2,10 +2,13 @@ package iut.fbleau.mastermind;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 
-public class ButtonListener implements View.OnClickListener{
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ButtonListener extends AppCompatActivity implements View.OnClickListener{
 
     Button button;
     Activity activity;
@@ -17,8 +20,9 @@ public class ButtonListener implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
+
         if(this.button.getId() == R.id.btn_quitter1){
-            ((Activity) view.getContext()).finish();
+            ((Activity) view.getContext()).finishAffinity();
         }
         else if(this.button.getId() == R.id.btn_jouer1){
             Intent intent = new Intent(activity, GameModeActivity.class);
@@ -38,5 +42,7 @@ public class ButtonListener implements View.OnClickListener{
         }
 
     }
+
+
 
 }
