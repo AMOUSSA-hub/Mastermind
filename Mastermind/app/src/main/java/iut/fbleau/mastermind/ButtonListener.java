@@ -18,6 +18,8 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
         this.activity = activity;
     }
 
+
+
     @Override
     public void onClick(View view) {
 
@@ -29,10 +31,12 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
             activity.startActivity(intent);
         }
         else if(this.button.getId() == R.id.btn_retour2){
+            activity.finishAffinity();
             Intent intent = new Intent(activity, MainActivity.class);
             activity.startActivity(intent);
         }
         else if(this.button.getId() == R.id.btn_retour3){
+            activity.finishAffinity();
             Intent intent = new Intent(activity, GameModeActivity.class);
             activity.startActivity(intent);
         }
