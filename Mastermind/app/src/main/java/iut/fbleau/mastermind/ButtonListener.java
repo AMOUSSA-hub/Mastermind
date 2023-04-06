@@ -55,7 +55,7 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
         }
         else if(this.button.getId() == R.id.btn_valider_choixCouleur){
             activity.finishAffinity();
-            Intent intent = new Intent(activity, Game.class);
+            Intent intent = new Intent(activity, GameActivity.class);
             activity.startActivity(intent);
         }
 
