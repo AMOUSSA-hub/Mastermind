@@ -4,4 +4,5 @@
     <string name="text_leave_button">QUITTER</string>
     <string name="part1_text_title">Master</string>
     <string name="part2_text_title">Mind</string>
+    <string name="confirm_button">Valider</string>
 </resources>
