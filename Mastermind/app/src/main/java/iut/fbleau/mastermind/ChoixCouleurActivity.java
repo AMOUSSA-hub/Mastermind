@@ -26,6 +26,10 @@ public class ChoixCouleurActivity extends AppCompatActivity {
 
 
 
+        Button valider = (Button) findViewById(R.id.btn_valider_choixCouleur);
+        valider.setOnClickListener(new ButtonListener(valider,this));
+
+
         ImageView btnCouleur1 = (ImageView) findViewById(R.id.circle5);
         btnCouleur1.setOnClickListener(new ChoixCouleurListener(btnCouleur1,this));
 

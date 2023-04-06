@@ -20,9 +20,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|top"
-            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
             android:text="Retour"
-            android:textSize="20sp"
+            android:textSize="20dp"
             />
 
     </LinearLayout>
@@ -40,7 +41,6 @@
 
 
         <TextView
-            android:paddingTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Master"
@@ -61,7 +61,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:gravity="center">
 
@@ -72,14 +72,14 @@
             android:text="Defenseur choissisez votre code secret"
             android:textColor="@color/white"
             android:textAlignment="center"
-            android:textSize="30dp"/>
+            android:textSize="20dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+
             android:layout_weight="3"
-            android:gravity="center|top"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -234,7 +234,7 @@
                 android:id="@+id/btn_valider_choixCouleur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Valider"
+                android:text="@string/confirm_button"
                 android:textSize="20sp"
                 android:layout_margin="16dp"
                 />

@@ -53,6 +53,11 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
             intent.putExtra("CaseVide", isChecked);
             activity.startActivity(intent);
         }
+        else if(this.button.getId() == R.id.btn_valider_choixCouleur){
+            activity.finishAffinity();
+            Intent intent = new Intent(activity, Game.class);
+            activity.startActivity(intent);
+        }
 
     }
 

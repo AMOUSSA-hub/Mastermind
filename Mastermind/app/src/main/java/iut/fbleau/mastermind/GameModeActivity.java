@@ -19,6 +19,8 @@ public class GameModeActivity extends AppCompatActivity {
         Button btnJouerA2 = (Button) findViewById(R.id.btn_JHotSeat);
         btnJouerA2.setOnClickListener(new ButtonListener(btnJouerA2,this));
 
+
+
     }
 
 
