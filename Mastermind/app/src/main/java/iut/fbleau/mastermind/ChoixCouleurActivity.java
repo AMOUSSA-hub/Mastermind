@@ -24,6 +24,8 @@ public class ChoixCouleurActivity extends AppCompatActivity {
         Button btnRetour = (Button) findViewById(R.id.btn_retour3);
         btnRetour.setOnClickListener(new ButtonListener(btnRetour,this));
 
+
+
         ImageView btnCouleur1 = (ImageView) findViewById(R.id.circle5);
         btnCouleur1.setOnClickListener(new ChoixCouleurListener(btnCouleur1,this));
 
