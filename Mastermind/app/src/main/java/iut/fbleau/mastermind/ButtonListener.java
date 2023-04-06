@@ -2,6 +2,7 @@ package iut.fbleau.mastermind;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
+        Log.d("click","click sur bouton de source"+this.button);
 
         if(this.button.getId() == R.id.btn_quitter1){
             ((Activity) view.getContext()).finishAffinity();
