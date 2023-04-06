@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 
 public class ChoixCouleurActivity extends AppCompatActivity {
@@ -39,6 +40,12 @@ public class ChoixCouleurActivity extends AppCompatActivity {
         btnCouleur5.setOnClickListener(new ChoixCouleurListener(btnCouleur5,this));
 
         //si option decoché faire "  btnCouleur5.setVisibility(View.GONE); "
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            if(!bundle.getBoolean("CaseVide")){
+                btnCouleur5.setVisibility(View.GONE);
+            }
+        }
     }
 
     public void incrementerPointeur(){

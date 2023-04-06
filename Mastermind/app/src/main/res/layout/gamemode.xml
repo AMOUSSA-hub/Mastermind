@@ -9,7 +9,7 @@
     android:background="@drawable/background">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start|top"
         android:gravity="center">
@@ -18,11 +18,19 @@
             android:id="@+id/btn_retour2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0"
             android:layout_gravity="start|top"
             android:layout_margin="16dp"
             android:text="Retour"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
+
+        <CheckBox
+            android:id="@+id/checkbox_cerlceBlanc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Jouer avec la case vide"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

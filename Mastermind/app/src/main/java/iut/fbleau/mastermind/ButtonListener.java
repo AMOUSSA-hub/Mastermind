@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,8 +43,14 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
             Intent intent = new Intent(activity, GameModeActivity.class);
             activity.startActivity(intent);
         }
-                else if(this.button.getId() == R.id.btn_JHotSeat){
+        else if(this.button.getId() == R.id.btn_JHotSeat){
+            activity.finishAffinity();
+
+            CheckBox myCheckBox = (CheckBox) activity.findViewById(R.id.checkbox_cerlceBlanc);
+            boolean isChecked = myCheckBox.isChecked();
+
             Intent intent = new Intent(activity, ChoixCouleurActivity.class);
+            intent.putExtra("CaseVide", isChecked);
             activity.startActivity(intent);
         }
 
