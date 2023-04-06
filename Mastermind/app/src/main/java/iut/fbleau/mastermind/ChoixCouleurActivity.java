@@ -1,7 +1,9 @@
 package iut.fbleau.mastermind;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +14,8 @@ import android.widget.ImageView;
 public class ChoixCouleurActivity extends AppCompatActivity {
 
     int pointeur=0;
-    int[] choix;
+    int[] choix = {0,0,0,0};
+    boolean IsCercleBlanc=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,7 @@ public class ChoixCouleurActivity extends AppCompatActivity {
         if (bundle != null) {
             if(!bundle.getBoolean("CaseVide")){
                 btnCouleur5.setVisibility(View.GONE);
+                IsCercleBlanc=true;
             }
         }
     }
@@ -96,27 +100,30 @@ public class ChoixCouleurActivity extends AppCompatActivity {
     public void setCouleur(int couleur){
         Log.d("click","click sur cercle de couleur" + couleur);
         //blue - vert - rouge - jaune - blanc
+        this.choix[pointeur]=couleur;
         if(couleur==1){
             getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.blue_circle);
-            //this.choix[pointeur]=couleur;
         }
         else if(couleur==2){
             getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.green_circle);
-            //this.choix[pointeur]=couleur;
         }
         else if(couleur==3){
             getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.red_circle);
-            //this.choix[pointeur]=couleur;
         }
         else if(couleur==4){
             getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.yellow_circle);
-            //this.choix[pointeur]=couleur;
         }
         else if(couleur==5){
             getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.white_circle);
-            //this.choix[pointeur]=couleur;
         }
         incrementerPointeur();
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.finishAffinity();
+        Intent intent = new Intent(this, GameModeActivity.class);
+        this.startActivity(intent);
     }
 
 

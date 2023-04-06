@@ -7,6 +7,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -54,6 +55,17 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
             activity.startActivity(intent);
         }
         else if(this.button.getId() == R.id.btn_valider_choixCouleur){
+            Log.d("Cercle","1");
+            if(((ChoixCouleurActivity) activity).IsCercleBlanc){
+                Log.d("Cercle","2");
+                int[] choix = ((ChoixCouleurActivity) activity).choix;
+                if(choix[0]==0||choix[1]==0||choix[2]==0||choix[3]==0){
+                    Log.d("Cercle","3"+choix[0]+choix[1]+choix[2]+choix[3]);
+                    Toast.makeText(activity, "Les cases vides sont désactivées", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+            Log.d("Cercle","4");
             activity.finishAffinity();
             Intent intent = new Intent(activity, GameActivity.class);
             activity.startActivity(intent);
