@@ -23,7 +23,7 @@ public class Plateau extends View {
         curseur = new Case();
         active_curseur = false;
         plateau = new Case[4][10];
-        selection = new Case[4];
+        selection = new Case[6];
 
         for (int y = 0; y <= 9; y++) {
             for (int x = 0; x <= 3; x++) {
@@ -31,7 +31,7 @@ public class Plateau extends View {
             }
         }
 
-        for(int i =0 ; i<= 3; i++){
+        for(int i =0 ; i<= selection.length-1; i++){
             selection[i] = new Case();
         }
 
@@ -43,7 +43,26 @@ public class Plateau extends View {
         this.active_curseur = b;
     }
 
+    public void  dropCoin(float x , float y){
 
+        this.resetCurseur();
+        for(int i = 0 ; i < plateau.length ; i += 1 ){
+            for (Case c : plateau[i]) {
+                if (c.isInside(x,y)) {
+                    plateau[i][0].setCol(curseur.getColor());
+                    plateau[i][0].setRadius(c.getRadius()+15);
+                    System.out.println("touch");
+
+
+                }
+            }
+        }
+        this.invalidate();
+
+        System.out.println("LA TOUCHE A ETE RELACHE");
+
+
+    }
     public void setPosCurseur( float x , float y){
         curseur.setPosX(x);
         curseur.setPosY(y);
@@ -129,7 +148,8 @@ public class Plateau extends View {
                 if(plateau[x][y].getColor() ==2) {pinceau.setColor(Color.BLUE);}
                 if(plateau[x][y].getColor() ==3) {pinceau.setColor(Color.GREEN);}
                 if(plateau[x][y].getColor() ==4){ pinceau.setColor(Color.YELLOW);}
-
+                if(plateau[x][y].getColor() ==5){ pinceau.setColor(Color.BLACK);}
+                if(plateau[x][y].getColor() ==6){ pinceau.setColor(Color.WHITE);}
 
                 circleX = Math.max(circleX, boxLeft + circleRadius);
                 circleX = Math.min(circleX, boxRight - circleRadius);
@@ -141,15 +161,17 @@ public class Plateau extends View {
 
 
         //les ronds de la selection
-        for(int i = 0; i<= 3 ; i++) {
+        for(int i = 0; i<= selection.length-1 ; i++) {
 
-            float pos_x = (float)((0.2 * getWidth()) * (1+i));
+            float pos_x = (float)((0.14 * getWidth()) * (1+i));
             float pos_y = (float) (0.935 * getHeight());
-            float rad = (float) (0.04 * getHeight());
+            float rad = (float) (0.035 * getHeight());
             if(i ==0)pinceau.setColor(Color.RED);
             if(i ==1)pinceau.setColor(Color.BLUE);
             if(i ==2)pinceau.setColor(Color.GREEN);
             if(i ==3)pinceau.setColor(Color.YELLOW);
+            if(i ==4)pinceau.setColor(Color.BLACK);
+            if(i ==5)pinceau.setColor(Color.WHITE);
             canvas.drawCircle(pos_x, pos_y, rad, pinceau);
 
             selection[i].setCol(i+1);
@@ -167,6 +189,8 @@ public class Plateau extends View {
             if(curseur.getColor() ==2) {pinceau.setColor(Color.BLUE);}
             if(curseur.getColor() ==3) {pinceau.setColor(Color.GREEN);}
             if(curseur.getColor() ==4){ pinceau.setColor(Color.YELLOW);}
+            if(curseur.getColor() ==5){ pinceau.setColor(Color.BLACK);}
+            if(curseur.getColor() ==6){ pinceau.setColor(Color.WHITE);}
             canvas.drawCircle(curseur.getPosX(), curseur.getPosY(), curseur.getRadius(), pinceau);
         }
 
