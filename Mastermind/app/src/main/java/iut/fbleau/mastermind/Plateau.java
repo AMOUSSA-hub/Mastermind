@@ -62,7 +62,7 @@ public class Plateau extends View {
         for (Case c : selection) {
             if (c.isInside(x, y)) {
                 curseur.setCol(c.getColor());
-                curseur.setRadius(c.getRadius()*2);
+                curseur.setRadius(c.getRadius()+15);
                 this.activeCurseur(true);
                 System.out.println("touch");
                 return true;
@@ -72,6 +72,7 @@ public class Plateau extends View {
 
         return false;
     }
+
 
 
 
@@ -105,7 +106,7 @@ public class Plateau extends View {
 
 
 
-        float circleRadius = 0.02f * getHeight();
+        float circleRadius = 0.03f * getHeight();
         float circleSpacingX = boxWidth / 4;
         float circleSpacingY = boxHeight / 10;
         float circleOffsetX = circleSpacingX / 2;
@@ -144,7 +145,7 @@ public class Plateau extends View {
 
             float pos_x = (float)((0.2 * getWidth()) * (1+i));
             float pos_y = (float) (0.935 * getHeight());
-            float rad = (float) (0.03 * getHeight());
+            float rad = (float) (0.04 * getHeight());
             if(i ==0)pinceau.setColor(Color.RED);
             if(i ==1)pinceau.setColor(Color.BLUE);
             if(i ==2)pinceau.setColor(Color.GREEN);
@@ -174,6 +175,10 @@ public class Plateau extends View {
 
 
     }
+
+
+
+
 
     public Path RoundedRect(float left, float top, float right, float bottom, float rx, float ry, boolean conformToOriginalPost) {
         Path path = new Path();
