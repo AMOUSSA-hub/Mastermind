@@ -40,6 +40,14 @@ public class ChoixCouleurListener extends AppCompatActivity implements View.OnCl
             activity.setCouleur(5);
         }
 
+        if(this.viewCercle.getId() == R.id.circle10){
+            activity.setCouleur(6);
+        }
+
+        if(this.viewCercle.getId() == R.id.circle11){
+            activity.setCouleur(7);
+        }
+
 
     }
 

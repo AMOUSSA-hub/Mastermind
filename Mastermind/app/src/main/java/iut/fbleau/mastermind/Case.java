@@ -52,8 +52,7 @@ public class Case {
     }
 
     public boolean isInside( float x, float y){
-        System.out.println("X :pos case:"+this.posX+" pos doigt:"+x);
-        System.out.println("Y: pos case:"+this.posY+" pos doigt:"+y);
+
         if( x<= posX+radius && x>= posX-radius && y<=posY+radius&& y>= posY-radius) {
             return true;
         }

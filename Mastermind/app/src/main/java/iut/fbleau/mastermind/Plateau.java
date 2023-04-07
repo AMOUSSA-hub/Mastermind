@@ -13,10 +13,13 @@ import android.view.View;
 
 public class Plateau extends View {
 
-    Case [][] plateau;
-    Case[] selection;
-    Case curseur;
-    boolean active_curseur;
+    private Case [][] plateau;
+    private Case [][] correction;
+    private Case[] selection;
+    private Case curseur;
+    private boolean active_curseur;
+
+    int line_focused;
     public Plateau(Context context, AttributeSet attrs) {
         super(context, attrs);
 
@@ -24,10 +27,13 @@ public class Plateau extends View {
         active_curseur = false;
         plateau = new Case[4][10];
         selection = new Case[6];
+        correction = new Case[4][10];
 
+        line_focused = 0;
         for (int y = 0; y <= 9; y++) {
             for (int x = 0; x <= 3; x++) {
                 plateau[x][y]= new Case();
+                correction[x][y] = new Case();
             }
         }
 
@@ -42,27 +48,9 @@ public class Plateau extends View {
     public void activeCurseur(boolean b){
         this.active_curseur = b;
     }
-
-    public void  dropCoin(float x , float y){
-
-        this.resetCurseur();
-        for(int i = 0 ; i < plateau.length ; i += 1 ){
-            for (Case c : plateau[i]) {
-                if (c.isInside(x,y)) {
-                    plateau[i][0].setCol(curseur.getColor());
-                    plateau[i][0].setRadius(c.getRadius()+15);
-                    System.out.println("touch");
+    public boolean getStatusCurseur(){return active_curseur;}
 
 
-                }
-            }
-        }
-        this.invalidate();
-
-        System.out.println("LA TOUCHE A ETE RELACHE");
-
-
-    }
     public void setPosCurseur( float x , float y){
         curseur.setPosX(x);
         curseur.setPosY(y);
@@ -76,16 +64,39 @@ public class Plateau extends View {
 
     }
 
+    public void  dropCoin(float x , float y){
+
+        this.resetCurseur();
+        for(int i = 0 ; i < plateau.length ; i += 1 ){
+            for (Case c : plateau[i]) {
+                if (c.isInside(x,y)) {
+                    plateau[i][this.line_focused].setCol(curseur.getColor());
+                    plateau[i][this.line_focused].setRadius(c.getRadius()+15);
+                    System.out.println("touch");
+                }
+            }
+        }
+        this.invalidate();
+
+
+    }
+
+    public void clearLine(){
+
+        for(int i = 0; i< plateau.length;i++){
+            plateau[i][line_focused].setCol(0);
+        }
+        this.invalidate();
+    }
+
+
     public boolean isTouchSelection( float x,float y ) {
-        System.out.println("test_selection");
         for (Case c : selection) {
             if (c.isInside(x, y)) {
                 curseur.setCol(c.getColor());
-                curseur.setRadius(c.getRadius()+15);
+                curseur.setRadius(c.getRadius()*2);
                 this.activeCurseur(true);
-                System.out.println("touch");
                 return true;
-
             }
         }
 
@@ -104,7 +115,6 @@ public class Plateau extends View {
 
         Paint pinceau = new Paint();
         canvas.drawColor(Color.TRANSPARENT);
-
         pinceau.setColor(Color.rgb(24,24,24));
 
 
@@ -159,6 +169,47 @@ public class Plateau extends View {
             }
         }
 
+        boxLeft = 0.65f * getWidth();
+        boxTop = 0;
+        boxRight = getWidth();
+        boxBottom = 0.85f * getHeight();
+        boxWidth = boxRight - boxLeft;
+        boxHeight = boxBottom - boxTop;
+        circleRadius = 0.01f * getHeight();
+        circleSpacingX =  boxWidth / 4;
+        circleSpacingY = boxHeight / 10;
+        circleOffsetX = circleSpacingX /2;
+        circleOffsetY = circleSpacingY / 2;
+
+        for (int y = 0; y <= 9; y++) {
+            for (int x = 0; x <= 3; x++) {
+
+                float circleX = boxLeft + circleOffsetX + circleSpacingX * x;
+                float circleY = circleSpacingY * y + circleOffsetY;
+
+                correction[x][y].setPosX(circleX);
+                correction[x][y].setPosY(circleY);
+                correction[x][y].setRadius(circleRadius);
+
+                if (correction[x][y].getColor() == 0) {
+                    pinceau.setColor(Color.rgb(105, 105, 105));
+                }
+                if (correction[x][y].getColor() == 5) {
+                    pinceau.setColor(Color.BLACK);
+                }
+                if (correction[x][y].getColor() == 6) {
+                    pinceau.setColor(Color.WHITE);
+                }
+
+                circleX = Math.max(circleX, boxLeft + circleRadius);
+                circleX = Math.min(circleX, boxRight - circleRadius);
+                circleY = Math.max(circleY, boxTop + circleRadius);
+                circleY = Math.min(circleY, boxBottom - circleRadius);
+                canvas.drawCircle(circleX, circleY, circleRadius, pinceau);
+            }
+        }
+
+
 
         // dessine les ronds de la selection
         for(int i = 0; i<= selection.length-1 ; i++) {
@@ -175,7 +226,6 @@ public class Plateau extends View {
             canvas.drawCircle(pos_x, pos_y, rad, pinceau);
 
             selection[i].setCol(i+1);
-
             selection[i].setPosX(pos_x);
             selection[i].setPosY(pos_y);
             selection[i].setRadius((rad));

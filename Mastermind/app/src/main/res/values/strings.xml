@@ -5,4 +5,5 @@
     <string name="part1_text_title">Master</string>
     <string name="part2_text_title">Mind</string>
     <string name="confirm_button">Valider</string>
+    <string name="clear">effacer tout</string>
 </resources>

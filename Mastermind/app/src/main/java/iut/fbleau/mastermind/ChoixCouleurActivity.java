@@ -24,35 +24,50 @@ public class ChoixCouleurActivity extends AppCompatActivity {
 
         findViewById(R.id.arrow1).setVisibility(View.VISIBLE);
 
+
+
         Button btnRetour = (Button) findViewById(R.id.btn_retour3);
         btnRetour.setOnClickListener(new ButtonListener(btnRetour,this));
-
 
 
         Button valider = (Button) findViewById(R.id.btn_valider_choixCouleur);
         valider.setOnClickListener(new ButtonListener(valider,this));
 
+        //bind des listener sur les cercles de couleur de la sélection
 
+        //cercle bleu
         ImageView btnCouleur1 = (ImageView) findViewById(R.id.circle5);
         btnCouleur1.setOnClickListener(new ChoixCouleurListener(btnCouleur1,this));
 
+        //cercle vert
         ImageView btnCouleur2 = (ImageView) findViewById(R.id.circle6);
         btnCouleur2.setOnClickListener(new ChoixCouleurListener(btnCouleur2,this));
 
+        //cercle rouge
         ImageView btnCouleur3 = (ImageView) findViewById(R.id.circle7);
         btnCouleur3.setOnClickListener(new ChoixCouleurListener(btnCouleur3,this));
 
+        //cercle jaune
         ImageView btnCouleur4 = (ImageView) findViewById(R.id.circle8);
         btnCouleur4.setOnClickListener(new ChoixCouleurListener(btnCouleur4,this));
 
+        //cercle blanc
         ImageView btnCouleur5 = (ImageView) findViewById(R.id.circle9);
         btnCouleur5.setOnClickListener(new ChoixCouleurListener(btnCouleur5,this));
 
-        //si option decoché faire "  btnCouleur5.setVisibility(View.GONE); "
+        //cercle noir
+        ImageView btnCouleur6 = (ImageView) findViewById(R.id.circle10);
+        btnCouleur6.setOnClickListener(new ChoixCouleurListener(btnCouleur6,this));
+
+        //cercle vide
+        ImageView btnCouleur7 = (ImageView) findViewById(R.id.circle11);
+        btnCouleur7.setOnClickListener(new ChoixCouleurListener(btnCouleur7,this));
+
+        //si option decoché faire "  btnCouleur7.setVisibility(View.GONE); "
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             if(!bundle.getBoolean("CaseVide")){
-                btnCouleur5.setVisibility(View.GONE);
+                btnCouleur7.setVisibility(View.GONE);
                 IsCercleBlanc=true;
             }
         }
@@ -116,6 +131,15 @@ public class ChoixCouleurActivity extends AppCompatActivity {
         else if(couleur==5){
             getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.white_circle);
         }
+
+        else if(couleur==6){
+            getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.black_circle);
+        }
+
+        else if(couleur==7){
+            getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.circle_gray);
+        }
+
         incrementerPointeur();
     }
 

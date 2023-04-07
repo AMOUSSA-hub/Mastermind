@@ -13,7 +13,7 @@ public class PlateauListener implements View.OnTouchListener {
         Plateau p = (Plateau) view;
 
         if(motionEvent.getActionMasked() == MotionEvent.ACTION_DOWN){
-            System.out.println("down");
+
 
             p.isTouchSelection(motionEvent.getX(),motionEvent.getY());
 
@@ -30,8 +30,10 @@ public class PlateauListener implements View.OnTouchListener {
 
         if(motionEvent.getActionMasked() == MotionEvent.ACTION_UP) {
 
-            p.dropCoin(motionEvent.getX(),motionEvent.getY());
+           if(p.getStatusCurseur()) {
+               p.dropCoin(motionEvent.getX(), motionEvent.getY());
 
+           }
         }
 
 
