@@ -124,7 +124,7 @@ public class Plateau extends View {
 
 
 
-
+        //dessine les cercles du plateau
         float circleRadius = 0.03f * getHeight();
         float circleSpacingX = boxWidth / 4;
         float circleSpacingY = boxHeight / 10;
@@ -160,7 +160,7 @@ public class Plateau extends View {
         }
 
 
-        //les ronds de la selection
+        // dessine les ronds de la selection
         for(int i = 0; i<= selection.length-1 ; i++) {
 
             float pos_x = (float)((0.14 * getWidth()) * (1+i));
@@ -182,7 +182,7 @@ public class Plateau extends View {
 
 
         }
-
+        //dessine le curseur
         if(active_curseur){
 
             if(curseur.getColor() ==1) {pinceau.setColor(Color.RED);}
