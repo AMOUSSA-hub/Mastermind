@@ -48,7 +48,7 @@ public class GameListener implements View.OnClickListener {
                             }
                             //ajout noir
                         }
-                        else if(correction[i]!=6 && bonCode[i]!=couleur){
+                        else if(correction[i]!=6 && bonCode[i]!=couleur && correction[u]!=6){
                             correction[i]=5;
                             lu[i]=u;
                             //ajout blanc
