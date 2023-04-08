@@ -26,9 +26,9 @@ public class GameModeActivity extends AppCompatActivity {
         btnJouerRobot.setOnClickListener(new ButtonListener(btnJouerRobot,this));
 
         Bundle bundle = getIntent().getExtras();
-        Log.d("caseVide1","bundle: "+(bundle != null));
+
         if (bundle != null) {
-            Log.d("caseVide2","caseVide: "+bundle.getBoolean("caseVide"));
+
             if(bundle.getBoolean("caseVide")){
                 ((CheckBox) findViewById(R.id.checkbox_cerlceBlanc)).setChecked(true);
             }

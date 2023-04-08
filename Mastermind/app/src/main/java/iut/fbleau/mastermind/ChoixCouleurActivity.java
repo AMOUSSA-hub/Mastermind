@@ -18,7 +18,7 @@ public class ChoixCouleurActivity extends AppCompatActivity {
 
     int pointeur=0;
     int[] choix = {0,0,0,0};
-    boolean IsCercleBlanc=false;
+    boolean isCercleBlanc=false;
     boolean ContreRobot=false;
 
     @Override
@@ -71,7 +71,7 @@ public class ChoixCouleurActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             if(bundle.getBoolean("CaseVide")){
-                IsCercleBlanc=true;
+                isCercleBlanc=true;
             }
             else{
                 btnCouleur7.setVisibility(View.GONE);
@@ -81,7 +81,7 @@ public class ChoixCouleurActivity extends AppCompatActivity {
                 ContreRobot=true;
             }
         }
-        Log.d("caseVideChoix",""+IsCercleBlanc);
+        Log.d("caseVideChoix",""+isCercleBlanc);
     }
 
     public void incrementerPointeur(){
@@ -145,7 +145,7 @@ public class ChoixCouleurActivity extends AppCompatActivity {
         else if(couleur==6){
             getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.black_circle);
         }
-        else if(couleur==7){
+        else if(couleur==0){
             getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.circle_gray);
         }
 
@@ -156,7 +156,7 @@ public class ChoixCouleurActivity extends AppCompatActivity {
     public void onBackPressed() {
         this.finishAffinity();
         Intent intent = new Intent(this, GameModeActivity.class);
-        intent.putExtra("caseVide",IsCercleBlanc);
+        intent.putExtra("caseVide",isCercleBlanc);
         this.startActivity(intent);
     }
 

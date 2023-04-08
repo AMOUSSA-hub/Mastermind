@@ -9,9 +9,11 @@ import android.widget.Button;
 
 public class GameActivity extends Activity {
 
-    Boolean IsCercleBlanc = false;
+    final int REQUEST_CODE = 5;
+
+    Boolean isCercleBlanc = false;
     Boolean ContreRobot = false;
-    int[] code;
+    int[] code = {0,0,0,0};
 
     Plateau p;
 
@@ -23,9 +25,8 @@ public class GameActivity extends Activity {
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            if(bundle.getBoolean("CaseVide")){
-                //btnCouleur7.setVisibility(View.GONE);
-                IsCercleBlanc=true;
+            if(bundle.getBoolean("caseVide")){
+                isCercleBlanc=true;
             }
             if(bundle.getBoolean("ContreRobot")){
                 ContreRobot=true;
@@ -33,8 +34,10 @@ public class GameActivity extends Activity {
             code = bundle.getIntArray("choix");
         }
 
-        Log.i("code_choisie",""+code[0]+','+code[1]+','+code[2]+','+code[3]);
-        Log.d("caseVideGame",""+IsCercleBlanc);
+        Log.i("initActivity","isCercleBlanc: "+isCercleBlanc+"    ContreRobot: "+ContreRobot);
+
+        Log.i("code_supo",""+code[0]+','+code[1]+','+code[2]+','+code[3]);
+        Log.d("caseVideGame",""+isCercleBlanc);
 
         p = (Plateau) findViewById(R.id.plat);
         p.setOnTouchListener(new PlateauListener());
@@ -57,10 +60,24 @@ public class GameActivity extends Activity {
         else{
             intent = new Intent(this, ChoixCouleurActivity.class);
         }
-        intent.putExtra("caseVide",IsCercleBlanc);
+        intent.putExtra("caseVide",isCercleBlanc);
         this.startActivity(intent);
 
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        System.out.println("retour 0");
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE) {
+            System.out.println("retour 1 "+resultCode +""+ data);
+            if (resultCode == RESULT_OK) {
+                System.out.println("retour 2");
+                // Récupération des données renvoyées par l'activité enfant
+                Bundle bundle = data.getExtras();
+                p.setCorrection(bundle.getIntArray("correction"));
+            }
+        }
     }
 
 

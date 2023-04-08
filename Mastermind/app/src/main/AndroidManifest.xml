@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".GameModeActivity" />
         <activity android:name=".ChoixCouleurActivity" />
+        <activity android:name=".CorrectionActivity" />
         <activity android:name=".GameActivity"
             android:screenOrientation="portrait"/>
     </application>

@@ -46,14 +46,15 @@ public class Plateau extends View {
 
     }
 
-    public int[] giveLigne(){
+    public int[] giveLigne(Boolean IsCercleBlanc){
 
         int[] ligne = {
                 plateau[0][line_focused].getColor(),
                 plateau[1][line_focused].getColor(),
                 plateau[2][line_focused].getColor(),
                 plateau[3][line_focused].getColor()};
-        if(!((GameActivity) getContext()).IsCercleBlanc&&(ligne[0]==0||ligne[1]==0||ligne[2]==0||ligne[3]==0)){
+        System.out.println("IsCercleBlanc: "+IsCercleBlanc+" dans activité: "+this+"---------------------------------------------");
+        if(!IsCercleBlanc&&(ligne[0]==0||ligne[1]==0||ligne[2]==0||ligne[3]==0)){
             return null;
         }
 
@@ -62,10 +63,34 @@ public class Plateau extends View {
         return ligne;
     }
     public void setCorrection(int[] cor){
-        correction[0][line_focused].setCol(cor[0]);
-        correction[1][line_focused].setCol(cor[1]);
-        correction[2][line_focused].setCol(cor[2]);
-        correction[3][line_focused].setCol(cor[3]);
+
+        int[] newcorrection =  new int[correction.length];
+        int ind=0;
+// Ajout des 6
+        for (int i = 0; i < correction.length; i++) {
+            if (cor[i] == 6) {
+                newcorrection[ind++] = 6;
+            }
+        }
+
+// Ajout des 5
+        for (int i = 0; i < correction.length; i++) {
+            if (cor[i] == 5) {
+                newcorrection[ind++] = 5;
+            }
+        }
+
+// Ajout des 0
+        for (int i = 0; i < correction.length; i++) {
+            if (cor[i] == 0) {
+                newcorrection[ind++] = 0;
+            }
+        }
+
+        correction[0][line_focused].setCol(newcorrection[0]);
+        correction[1][line_focused].setCol(newcorrection[1]);
+        correction[2][line_focused].setCol(newcorrection[2]);
+        correction[3][line_focused].setCol(newcorrection[3]);
 
         this.invalidate();
         line_focused++;

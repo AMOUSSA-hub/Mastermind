@@ -44,7 +44,7 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
         else if(this.button.getId() == R.id.btn_retour3){
             activity.finishAffinity();
             Intent intent = new Intent(activity, GameModeActivity.class);
-            intent.putExtra("caseVide",((ChoixCouleurActivity) activity).IsCercleBlanc);
+            intent.putExtra("caseVide",((ChoixCouleurActivity) activity).isCercleBlanc);
             activity.startActivity(intent);
         }
         else if(this.button.getId() == R.id.btn_JRobot){
@@ -55,7 +55,7 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
 
             Intent intent = new Intent(activity, GameActivity.class);
             intent.putExtra("choix",generateCode(isChecked));
-            intent.putExtra("CaseVide", isChecked);
+            intent.putExtra("caseVide", isChecked);
             intent.putExtra("ContreRobot", true);
             activity.startActivity(intent);
         }
@@ -73,7 +73,7 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
         else if(this.button.getId() == R.id.btn_valider_choixCouleur){
 
             Log.d("Cercle","1");
-            if(!((ChoixCouleurActivity) activity).IsCercleBlanc){
+            if(!((ChoixCouleurActivity) activity).isCercleBlanc){
                 Log.d("Cercle","2");
                 int[] choix = ((ChoixCouleurActivity) activity).choix;
                 if(choix[0]==0||choix[1]==0||choix[2]==0||choix[3]==0){
@@ -87,6 +87,7 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
             Intent intent = new Intent(activity, GameActivity.class);
             intent.putExtra("ContreRobot", ((ChoixCouleurActivity) activity).ContreRobot);
             intent.putExtra("choix",((ChoixCouleurActivity) activity).choix);
+            intent.putExtra("caseVide",((ChoixCouleurActivity) activity).isCercleBlanc);
             activity.startActivity(intent);
         }
 
