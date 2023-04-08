@@ -185,8 +185,9 @@
 
 
             <LinearLayout
+                android:id="@+id/layoutCerlces"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:layout_marginTop="10dp">
@@ -237,7 +238,7 @@
                 <ImageView
                     android:id="@+id/circle10"
                     android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_height="match_parent"
                     android:layout_marginHorizontal="4dp"
                     android:background="@drawable/black_circle"
                     android:layout_weight="1"/>
@@ -245,7 +246,7 @@
                 <ImageView
                     android:id="@+id/circle11"
                     android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_height="match_parent"
                     android:layout_marginHorizontal="4dp"
                     android:background="@drawable/circle_gray"
                     android:layout_weight="1"/>

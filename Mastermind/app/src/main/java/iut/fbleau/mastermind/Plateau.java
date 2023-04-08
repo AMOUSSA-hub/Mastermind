@@ -18,6 +18,7 @@ public class Plateau extends View {
     private Case[] selection;
     private Case curseur;
     private boolean active_curseur;
+    public int niveau;
 
     int line_focused;
     public Plateau(Context context, AttributeSet attrs) {
@@ -43,6 +44,31 @@ public class Plateau extends View {
 
 
 
+    }
+
+    public int[] giveLigne(){
+
+        int[] ligne = {
+                plateau[0][line_focused].getColor(),
+                plateau[1][line_focused].getColor(),
+                plateau[2][line_focused].getColor(),
+                plateau[3][line_focused].getColor()};
+        if(!((GameActivity) getContext()).IsCercleBlanc&&(ligne[0]==0||ligne[1]==0||ligne[2]==0||ligne[3]==0)){
+            return null;
+        }
+
+
+
+        return ligne;
+    }
+    public void setCorrection(int[] cor){
+        correction[0][line_focused].setCol(cor[0]);
+        correction[1][line_focused].setCol(cor[1]);
+        correction[2][line_focused].setCol(cor[2]);
+        correction[3][line_focused].setCol(cor[3]);
+
+        this.invalidate();
+        line_focused++;
     }
 
     public void activeCurseur(boolean b){
@@ -154,12 +180,12 @@ public class Plateau extends View {
 
 
                 if(plateau[x][y].getColor() ==0) {pinceau.setColor(Color.rgb(105, 105, 105));}
-                if(plateau[x][y].getColor() ==1) {pinceau.setColor(Color.RED);}
-                if(plateau[x][y].getColor() ==2) {pinceau.setColor(Color.BLUE);}
-                if(plateau[x][y].getColor() ==3) {pinceau.setColor(Color.GREEN);}
+                if(plateau[x][y].getColor() ==1) {pinceau.setColor(Color.BLUE);}
+                if(plateau[x][y].getColor() ==2) {pinceau.setColor(Color.GREEN);}
+                if(plateau[x][y].getColor() ==3) {pinceau.setColor(Color.RED);}
                 if(plateau[x][y].getColor() ==4){ pinceau.setColor(Color.YELLOW);}
-                if(plateau[x][y].getColor() ==5){ pinceau.setColor(Color.BLACK);}
-                if(plateau[x][y].getColor() ==6){ pinceau.setColor(Color.WHITE);}
+                if(plateau[x][y].getColor() ==5){ pinceau.setColor(Color.WHITE);}
+                if(plateau[x][y].getColor() ==6){ pinceau.setColor(Color.BLACK);}
 
                 circleX = Math.max(circleX, boxLeft + circleRadius);
                 circleX = Math.min(circleX, boxRight - circleRadius);
@@ -195,10 +221,10 @@ public class Plateau extends View {
                     pinceau.setColor(Color.rgb(105, 105, 105));
                 }
                 if (correction[x][y].getColor() == 5) {
-                    pinceau.setColor(Color.BLACK);
+                    pinceau.setColor(Color.WHITE);
                 }
                 if (correction[x][y].getColor() == 6) {
-                    pinceau.setColor(Color.WHITE);
+                    pinceau.setColor(Color.BLACK);
                 }
 
                 circleX = Math.max(circleX, boxLeft + circleRadius);
@@ -217,12 +243,12 @@ public class Plateau extends View {
             float pos_x = (float)((0.14 * getWidth()) * (1+i));
             float pos_y = (float) (0.935 * getHeight());
             float rad = (float) (0.035 * getHeight());
-            if(i ==0)pinceau.setColor(Color.RED);
-            if(i ==1)pinceau.setColor(Color.BLUE);
-            if(i ==2)pinceau.setColor(Color.GREEN);
+            if(i ==0)pinceau.setColor(Color.BLUE);
+            if(i ==1)pinceau.setColor(Color.GREEN);
+            if(i ==2)pinceau.setColor(Color.RED);
             if(i ==3)pinceau.setColor(Color.YELLOW);
-            if(i ==4)pinceau.setColor(Color.BLACK);
-            if(i ==5)pinceau.setColor(Color.WHITE);
+            if(i ==4)pinceau.setColor(Color.WHITE);
+            if(i ==5)pinceau.setColor(Color.BLACK);
             canvas.drawCircle(pos_x, pos_y, rad, pinceau);
 
             selection[i].setCol(i+1);
@@ -235,12 +261,12 @@ public class Plateau extends View {
         //dessine le curseur
         if(active_curseur){
 
-            if(curseur.getColor() ==1) {pinceau.setColor(Color.RED);}
-            if(curseur.getColor() ==2) {pinceau.setColor(Color.BLUE);}
-            if(curseur.getColor() ==3) {pinceau.setColor(Color.GREEN);}
+            if(curseur.getColor() ==1) {pinceau.setColor(Color.BLUE);}
+            if(curseur.getColor() ==2) {pinceau.setColor(Color.GREEN);}
+            if(curseur.getColor() ==3) {pinceau.setColor(Color.RED);}
             if(curseur.getColor() ==4){ pinceau.setColor(Color.YELLOW);}
-            if(curseur.getColor() ==5){ pinceau.setColor(Color.BLACK);}
-            if(curseur.getColor() ==6){ pinceau.setColor(Color.WHITE);}
+            if(curseur.getColor() ==5){ pinceau.setColor(Color.WHITE);}
+            if(curseur.getColor() ==6){ pinceau.setColor(Color.BLACK);}
             canvas.drawCircle(curseur.getPosX(), curseur.getPosY(), curseur.getRadius(), pinceau);
         }
 

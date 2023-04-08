@@ -22,8 +22,6 @@ public class ChoixCouleurListener extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
 
-        Log.d("click","click sur couleur de source"+this.viewCercle);
-
         if(this.viewCercle.getId() == R.id.circle5){
             activity.setCouleur(1);
         }
@@ -39,13 +37,11 @@ public class ChoixCouleurListener extends AppCompatActivity implements View.OnCl
         if(this.viewCercle.getId() == R.id.circle9){
             activity.setCouleur(5);
         }
-
         if(this.viewCercle.getId() == R.id.circle10){
             activity.setCouleur(6);
         }
-
         if(this.viewCercle.getId() == R.id.circle11){
-            activity.setCouleur(7);
+            activity.setCouleur(0);
         }
 
 

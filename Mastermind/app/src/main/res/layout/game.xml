@@ -46,6 +46,7 @@
         />
 
         <Button
+            android:id="@+id/gameValider_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="@string/confirm_button"

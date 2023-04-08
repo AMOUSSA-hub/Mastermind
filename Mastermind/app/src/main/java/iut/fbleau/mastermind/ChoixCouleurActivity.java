@@ -6,16 +6,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class ChoixCouleurActivity extends AppCompatActivity {
 
     int pointeur=0;
     int[] choix = {0,0,0,0};
     boolean IsCercleBlanc=false;
+    boolean ContreRobot=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,11 +70,24 @@ public class ChoixCouleurActivity extends AppCompatActivity {
         //si option decoché faire "  btnCouleur7.setVisibility(View.GONE); "
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            if(!bundle.getBoolean("CaseVide")){
-                btnCouleur7.setVisibility(View.GONE);
+            if(bundle.getBoolean("CaseVide")){
                 IsCercleBlanc=true;
             }
+            else{
+                btnCouleur7.setVisibility(View.GONE);
+                //change la taille du layout selon le nbr de cercles pour pas les deformer
+                float dp = 60f;
+                float pixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
+                LinearLayout myLayout = findViewById(R.id.layoutCerlces);
+                ViewGroup.LayoutParams layoutParams = myLayout.getLayoutParams();
+                layoutParams.height = (int) pixels;
+                myLayout.setLayoutParams(layoutParams);
+            }
+            if(bundle.getBoolean("ContreRobot")){
+                ContreRobot=true;
+            }
         }
+        Log.d("caseVideChoix",""+IsCercleBlanc);
     }
 
     public void incrementerPointeur(){
@@ -114,7 +131,7 @@ public class ChoixCouleurActivity extends AppCompatActivity {
 
     public void setCouleur(int couleur){
         Log.d("click","click sur cercle de couleur" + couleur);
-        //blue - vert - rouge - jaune - blanc
+        //blue - vert - rouge - jaune - blanc -
         this.choix[pointeur]=couleur;
         if(couleur==1){
             getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.blue_circle);
@@ -131,11 +148,9 @@ public class ChoixCouleurActivity extends AppCompatActivity {
         else if(couleur==5){
             getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.white_circle);
         }
-
         else if(couleur==6){
             getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.black_circle);
         }
-
         else if(couleur==7){
             getPointeurCirle(this.pointeur).setBackgroundResource(R.drawable.circle_gray);
         }
@@ -147,6 +162,7 @@ public class ChoixCouleurActivity extends AppCompatActivity {
     public void onBackPressed() {
         this.finishAffinity();
         Intent intent = new Intent(this, GameModeActivity.class);
+        intent.putExtra("caseVide",IsCercleBlanc);
         this.startActivity(intent);
     }
 

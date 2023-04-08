@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 
 public class GameModeActivity extends AppCompatActivity {
 
@@ -19,6 +21,18 @@ public class GameModeActivity extends AppCompatActivity {
 
         Button btnJouerA2 = (Button) findViewById(R.id.btn_JHotSeat);
         btnJouerA2.setOnClickListener(new ButtonListener(btnJouerA2,this));
+
+        Button btnJouerRobot = (Button) findViewById(R.id.btn_JRobot);
+        btnJouerRobot.setOnClickListener(new ButtonListener(btnJouerRobot,this));
+
+        Bundle bundle = getIntent().getExtras();
+        Log.d("caseVide1","bundle: "+(bundle != null));
+        if (bundle != null) {
+            Log.d("caseVide2","caseVide: "+bundle.getBoolean("caseVide"));
+            if(bundle.getBoolean("caseVide")){
+                ((CheckBox) findViewById(R.id.checkbox_cerlceBlanc)).setChecked(true);
+            }
+        }
 
 
 
