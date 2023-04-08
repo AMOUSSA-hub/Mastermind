@@ -75,13 +75,7 @@ public class ChoixCouleurActivity extends AppCompatActivity {
             }
             else{
                 btnCouleur7.setVisibility(View.GONE);
-                //change la taille du layout selon le nbr de cercles pour pas les deformer
-                float dp = 60f;
-                float pixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
-                LinearLayout myLayout = findViewById(R.id.layoutCerlces);
-                ViewGroup.LayoutParams layoutParams = myLayout.getLayoutParams();
-                layoutParams.height = (int) pixels;
-                myLayout.setLayoutParams(layoutParams);
+
             }
             if(bundle.getBoolean("ContreRobot")){
                 ContreRobot=true;

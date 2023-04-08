@@ -186,16 +186,16 @@
 
             <LinearLayout
                 android:id="@+id/layoutCerlces"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:layout_marginTop="10dp">
 
                 <ImageView
                     android:id="@+id/circle5"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginHorizontal="4dp"
                     android:background="@drawable/blue_circle"
                     android:layout_weight="1"/>
@@ -204,16 +204,16 @@
 
                 <ImageView
                     android:id="@+id/circle6"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginHorizontal="4dp"
                     android:background="@drawable/green_circle"
                     android:layout_weight="1"/>
 
                 <ImageView
                     android:id="@+id/circle7"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginHorizontal="4dp"
                     android:background="@drawable/red_circle"
                     android:layout_weight="1"/>
@@ -221,15 +221,15 @@
 
                 <ImageView
                     android:id="@+id/circle8"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginHorizontal="4dp"
                     android:background="@drawable/yellow_circle"
                     android:layout_weight="1"/>
                 <ImageView
                     android:id="@+id/circle9"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginHorizontal="4dp"
                     android:background="@drawable/white_circle"
                     android:layout_weight="1"/>
@@ -237,16 +237,16 @@
 
                 <ImageView
                     android:id="@+id/circle10"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginHorizontal="4dp"
                     android:background="@drawable/black_circle"
                     android:layout_weight="1"/>
 
                 <ImageView
                     android:id="@+id/circle11"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginHorizontal="4dp"
                     android:background="@drawable/circle_gray"
                     android:layout_weight="1"/>
