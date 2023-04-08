@@ -4,6 +4,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Random;
+
 public class GameListener implements View.OnClickListener {
 
     Plateau p;
@@ -59,7 +65,32 @@ public class GameListener implements View.OnClickListener {
             }
             //if(correction=={6,6,6,6}){
 
-            p.setCorrection(correction);
+            int[] newcorrection =  new int[correction.length];
+            int ind=0;
+// Ajout des 6
+            for (int i = 0; i < correction.length; i++) {
+                if (correction[i] == 6) {
+                    newcorrection[ind++] = 6;
+                }
+            }
+
+// Ajout des 5
+            for (int i = 0; i < correction.length; i++) {
+                if (correction[i] == 5) {
+                    newcorrection[ind++] = 5;
+                }
+            }
+
+// Ajout des 0
+            for (int i = 0; i < correction.length; i++) {
+                if (correction[i] == 0) {
+                    newcorrection[ind++] = 0;
+                }
+            }
+
+
+
+            p.setCorrection(newcorrection);
 
 
         }
