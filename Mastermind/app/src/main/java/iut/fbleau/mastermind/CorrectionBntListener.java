@@ -35,6 +35,15 @@ public class CorrectionBntListener extends AppCompatActivity implements View.OnC
             activity.setResult(RESULT_OK, intent);
             activity.finish();
         }
+
+
+        else if (view.getId() == R.id.win_button) {
+
+            Intent intent = new Intent();
+            intent.putExtra("correction", new int[]{6,6,6,6});
+            activity.setResult(RESULT_OK, intent);
+            activity.finish();
+        }
     }
 
     private void affPopUp() {

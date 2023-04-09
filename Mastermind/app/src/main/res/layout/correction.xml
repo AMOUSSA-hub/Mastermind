@@ -83,7 +83,11 @@
             android:textAlignment="center"
             android:textSize="20dp"/>
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -185,6 +189,16 @@
 
 
         </LinearLayout>
+
+    <Button
+        android:id="@+id/win_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Win"
+        android:textSize="20sp"
+        android:layout_margin="16dp"
+        />
+</LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

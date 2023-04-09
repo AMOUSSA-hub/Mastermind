@@ -19,6 +19,7 @@ public class Plateau extends View {
     private Case curseur;
     private boolean active_curseur;
     public int niveau;
+    private boolean gameFinished ;
 
     int line_focused;
     public Plateau(Context context, AttributeSet attrs) {
@@ -29,6 +30,7 @@ public class Plateau extends View {
         plateau = new Case[4][10];
         selection = new Case[6];
         correction = new Case[4][10];
+        gameFinished = false;
 
         line_focused = 0;
         for (int y = 0; y <= 9; y++) {
@@ -53,7 +55,6 @@ public class Plateau extends View {
                 plateau[1][line_focused].getColor(),
                 plateau[2][line_focused].getColor(),
                 plateau[3][line_focused].getColor()};
-        System.out.println("IsCercleBlanc: "+IsCercleBlanc+" dans activité: "+this+"---------------------------------------------");
         if(!IsCercleBlanc&&(ligne[0]==0||ligne[1]==0||ligne[2]==0||ligne[3]==0)){
             return null;
         }
@@ -123,7 +124,6 @@ public class Plateau extends View {
                 if (c.isInside(x,y)) {
                     plateau[i][this.line_focused].setCol(curseur.getColor());
                     plateau[i][this.line_focused].setRadius(c.getRadius()+15);
-                    System.out.println("touch");
                 }
             }
         }
@@ -134,10 +134,13 @@ public class Plateau extends View {
 
     public void clearLine(){
 
-        for(int i = 0; i< plateau.length;i++){
-            plateau[i][line_focused].setCol(0);
-        }
-        this.invalidate();
+
+
+            for (int i = 0; i < plateau.length; i++) {
+                plateau[i][line_focused].setCol(0);
+            }
+            this.invalidate();
+
     }
 
 
@@ -159,6 +162,10 @@ public class Plateau extends View {
 
         return line_focused+1;
     }
+
+    public boolean isGameFinished(){return gameFinished; }
+
+    public void setGameFinished(){gameFinished = true;    }
 
 
 

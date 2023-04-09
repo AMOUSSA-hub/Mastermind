@@ -14,6 +14,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Arrays;
+
 public class GameActivity extends Activity {
 
     final int REQUEST_CODE = 5;
@@ -55,6 +57,9 @@ public class GameActivity extends Activity {
         Button v = (Button) findViewById(R.id.gameValider_button);
         v.setOnClickListener(new GameListener(p,this));
 
+        LinearLayout LL = (LinearLayout) findViewById(R.id.screen_game);
+        LL.setOnTouchListener(new TactileListener(this));
+
     }
 
     @Override
@@ -82,8 +87,17 @@ public class GameActivity extends Activity {
                 System.out.println("retour 2");
                 // Récupération des données renvoyées par l'activité enfant
                 Bundle bundle = data.getExtras();
-                p.setCorrection(bundle.getIntArray("correction"));
-                System.out.println(bundle.getIntArray("correction"));
+                int [] correction =bundle.getIntArray("correction");
+
+                p.setCorrection(correction);
+                System.out.println(correction);
+
+                if(Arrays.equals(correction, new int[]{6, 6, 6, 6})){
+                    System.out.println("gagné");
+                    this.p.setGameFinished();
+                    this.Victory();
+                }
+
 
 
 
@@ -101,7 +115,7 @@ public class GameActivity extends Activity {
 
                 TextView TV = new TextView(this);
 
-                TV.setText("Bravo! Vous avez gagné avec un total de"+p.getTry()+" essais");
+                TV.setText("Bravo! Vous avez gagné avec un total de \n" +p.getTry()+" essais");
                 TV.setTextSize(15f);
                 TV.setTypeface(null, Typeface.BOLD);
                 TV.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
@@ -120,6 +134,10 @@ public class GameActivity extends Activity {
 
 
 
+     }
+
+     public Plateau getPlateau(){
+        return this.p;
      }
 
 

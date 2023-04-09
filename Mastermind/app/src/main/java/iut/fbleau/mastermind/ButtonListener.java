@@ -127,7 +127,7 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
         int[] choix = {0,0,0,0};
 
         for (int i = 0; i < 4; i++) {
-            int digit = random.nextInt(7); //7 = max nbr couleur +1
+            int digit = random.nextInt(7);
 
             if(digit==0 && !useZero){
                 i--;

@@ -14,14 +14,15 @@ public class PlateauListener implements View.OnTouchListener {
 
         if(motionEvent.getActionMasked() == MotionEvent.ACTION_DOWN){
 
-
-            p.isTouchSelection(motionEvent.getX(),motionEvent.getY());
-
+          if(!p.isGameFinished()) {
+              p.isTouchSelection(motionEvent.getX(), motionEvent.getY());
+          }
 
         }
 
         if(motionEvent.getActionMasked() == MotionEvent.ACTION_MOVE) {
 
+         if(!p.isGameFinished())
             p.setPosCurseur(motionEvent.getX(),motionEvent.getY());
 
 

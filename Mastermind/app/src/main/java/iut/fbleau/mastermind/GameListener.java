@@ -26,27 +26,27 @@ public class GameListener implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        if (view.getId() == R.id.clear_button) {
-            p.clearLine();
-        }
-        else if (view.getId() == R.id.gameValider_button) {
-            int[] supposition = activity.p.giveLigne(activity.isCercleBlanc);
+        if(!p.isGameFinished()) {
+            if (view.getId() == R.id.clear_button) {
+                p.clearLine();
+            } else if (view.getId() == R.id.gameValider_button) {
+                int[] supposition = activity.p.giveLigne(activity.isCercleBlanc);
 
-            if (supposition==null){
-                Toast.makeText(activity, "L'utilisation des cases vides sont désactivées", Toast.LENGTH_SHORT).show();
-                return;
+                if (supposition == null) {
+                    Toast.makeText(activity, "L'utilisation des cases vides sont désactivées", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (activity.ContreRobot) {
+                    corrige();
+                } else {
+                    Intent intent = new Intent(activity, CorrectionActivity.class);
+                    intent.putExtra("bonCode", activity.code);
+                    intent.putExtra("supposition", activity.p.giveLigne(activity.isCercleBlanc));
+                    activity.startActivityForResult(intent, activity.REQUEST_CODE);
+                }
             }
-            if(activity.ContreRobot){
-                corrige();
-            }
-            else{
-                Intent intent = new Intent(activity, CorrectionActivity.class);
-                intent.putExtra("bonCode", activity.code);
-                intent.putExtra("supposition", activity.p.giveLigne(activity.isCercleBlanc));
-                activity.startActivityForResult(intent, activity.REQUEST_CODE);
-            }
-        }
 
+        }
     }
 
 private void corrige(){
@@ -85,6 +85,7 @@ private void corrige(){
     Log.i("code","correction : ["+correction[0]+','+correction[1]+','+correction[2]+','+correction[3]+"]lu : ["+lu[0]+','+lu[1]+','+lu[2]+','+lu[3]+"]");
     if(Arrays.equals(correction, new int[]{6, 6, 6, 6})){
 
+        p.setGameFinished();
         activity.Victory();
 
     }

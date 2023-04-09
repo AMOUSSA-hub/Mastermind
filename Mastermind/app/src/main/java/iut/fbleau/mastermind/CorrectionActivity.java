@@ -64,6 +64,9 @@ public class CorrectionActivity extends AppCompatActivity {
 
         Button btnVal = (Button) findViewById(R.id.btn_valider_corr);
         btnVal.setOnClickListener(new CorrectionBntListener(btnVal,this));
+
+        Button btnWin = (Button) findViewById(R.id.win_button);
+        btnWin.setOnClickListener(new CorrectionBntListener(btnWin,this));
     }
 
     public void setCouleur(int couleur){

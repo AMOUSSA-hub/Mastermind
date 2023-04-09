@@ -7,4 +7,6 @@
     <string name="confirm_button">Valider</string>
     <string name="clear">effacer tout</string>
     <string name="settings">reglages</string>
+    <string name="Win">Tout Bon</string>
+
 </resources>

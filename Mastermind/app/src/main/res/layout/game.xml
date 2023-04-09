@@ -8,6 +8,7 @@
     tools:context=".MainActivity"
     android:gravity="top"
     android:background="@drawable/background"
+    android:id="@+id/screen_game"
     >
 
 
