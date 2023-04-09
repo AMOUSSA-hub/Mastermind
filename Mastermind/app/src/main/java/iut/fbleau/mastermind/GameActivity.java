@@ -89,7 +89,7 @@ public class GameActivity extends Activity {
                 Bundle bundle = data.getExtras();
                 int [] correction =bundle.getIntArray("correction");
 
-                p.setCorrection(correction);
+
                 System.out.println(correction);
 
                 if(Arrays.equals(correction, new int[]{6, 6, 6, 6})){
@@ -97,6 +97,13 @@ public class GameActivity extends Activity {
                     this.p.setGameFinished();
                     this.Victory();
                 }
+
+
+                if(p.getTry() == 10){
+
+                }
+
+                p.setCorrection(correction);
 
 
 
@@ -135,6 +142,37 @@ public class GameActivity extends Activity {
 
 
      }
+
+
+    public void Defeat(){
+
+        // Création d'un LinearLayout horizontal pour contenir les cercles
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.HORIZONTAL);
+        layout.setGravity(Gravity.CENTER); // Centrer les éléments
+
+        TextView TV = new TextView(this);
+
+        TV.setText("Dommage vous avez perdu");
+        TV.setTextSize(15f);
+        TV.setTypeface(null, Typeface.BOLD);
+        TV.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
+        // Ajout du cercle au layout
+        layout.addView(TV);
+
+
+        // Création de la boîte de dialogue
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setView(layout);
+
+        // Affichage de la boîte de dialogue
+
+        builder.show();
+
+
+
+    }
 
      public Plateau getPlateau(){
         return this.p;
