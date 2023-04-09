@@ -9,10 +9,14 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static boolean caseVide =false ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         //bouton quitter
         Button btnQuitter = (Button) findViewById(R.id.btn_quitter1);
@@ -27,23 +31,32 @@ public class MainActivity extends AppCompatActivity {
         Button btnSetting = (Button) findViewById(R.id.setting_button);
         btnSetting.setOnClickListener(new ButtonListener(btnSetting,this));
 
+        this.getIntent().putExtra("caseVide",caseVide);
+
+
+
+
+
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Bundle bundle = data.getExtras();
 
-            if(bundle.getBoolean("caseVide")){
-                this.getIntent().putExtra("caseVide",true);
-            }
+        if(data != null) {
+            Bundle bundle = data.getExtras();
 
-            else {
-                this.getIntent().putExtra("caseVide",false);
-                System.out.println("case vide désactivé");
+
+            if (bundle.getBoolean("caseVide")) {
+                this.getIntent().putExtra("caseVide", true);
+                caseVide = true;
+            } else {
+                this.getIntent().putExtra("caseVide", false);
+                caseVide = false;
             }
-    }
+        }
+     }
 
 
 
