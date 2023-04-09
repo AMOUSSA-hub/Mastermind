@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class GameActivity extends Activity {
 
     final int REQUEST_CODE = 5;
@@ -76,6 +78,10 @@ public class GameActivity extends Activity {
                 // Récupération des données renvoyées par l'activité enfant
                 Bundle bundle = data.getExtras();
                 p.setCorrection(bundle.getIntArray("correction"));
+                System.out.println(bundle.getIntArray("correction"));
+
+
+
             }
         }
     }

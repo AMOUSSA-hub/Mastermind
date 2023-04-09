@@ -32,7 +32,7 @@ public class CorrectionBntListener extends AppCompatActivity implements View.OnC
 
             Intent intent = new Intent();
             intent.putExtra("correction", activity.choix);
-            setResult(RESULT_OK, intent);
+            activity.setResult(RESULT_OK, intent);
             activity.finish();
         }
     }
