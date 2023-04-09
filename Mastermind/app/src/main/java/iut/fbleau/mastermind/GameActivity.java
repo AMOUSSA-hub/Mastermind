@@ -2,11 +2,16 @@ package iut.fbleau.mastermind;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class GameActivity extends Activity {
@@ -85,6 +90,40 @@ public class GameActivity extends Activity {
             }
         }
     }
+
+
+     public void Victory(){
+
+         // Création d'un LinearLayout horizontal pour contenir les cercles
+         LinearLayout layout = new LinearLayout(this);
+         layout.setOrientation(LinearLayout.HORIZONTAL);
+         layout.setGravity(Gravity.CENTER); // Centrer les éléments
+
+                TextView TV = new TextView(this);
+
+                TV.setText("Bravo! Vous avez gagné avec un total de"+p.getTry()+" essais");
+                TV.setTextSize(15f);
+                TV.setTypeface(null, Typeface.BOLD);
+                TV.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
+             // Ajout du cercle au layout
+             layout.addView(TV);
+
+
+         // Création de la boîte de dialogue
+         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+         builder.setView(layout);
+
+         // Affichage de la boîte de dialogue
+
+         builder.show();
+
+
+
+     }
+
+
+
 
 
 }

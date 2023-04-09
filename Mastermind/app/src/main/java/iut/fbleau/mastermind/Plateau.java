@@ -155,6 +155,10 @@ public class Plateau extends View {
     }
 
 
+    public int getTry(){
+
+        return line_focused+1;
+    }
 
 
 

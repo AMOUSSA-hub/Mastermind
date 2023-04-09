@@ -83,7 +83,11 @@ private void corrige(){
 
     }
     Log.i("code","correction : ["+correction[0]+','+correction[1]+','+correction[2]+','+correction[3]+"]lu : ["+lu[0]+','+lu[1]+','+lu[2]+','+lu[3]+"]");
-    //if(correction=={6,6,6,6}){
+    if(Arrays.equals(correction, new int[]{6, 6, 6, 6})){
+
+        activity.Victory();
+
+    }
 
 
 
