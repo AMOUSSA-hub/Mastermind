@@ -99,7 +99,9 @@ public class GameActivity extends Activity {
                 }
 
 
-                if(p.getTry() == 10){
+                else if (p.getTry() == 10){
+                    this.p.setGameFinished();
+                    this.Defeat();
 
                 }
 
@@ -153,7 +155,7 @@ public class GameActivity extends Activity {
 
         TextView TV = new TextView(this);
 
-        TV.setText("Dommage vous avez perdu");
+        TV.setText("Dommage vous avez perdu!");
         TV.setTextSize(15f);
         TV.setTypeface(null, Typeface.BOLD);
         TV.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);

@@ -90,6 +90,12 @@ private void corrige(){
 
     }
 
+    else if (p.getTry() == 10){
+        this.p.setGameFinished();
+        activity.Defeat();
+
+    }
+
 
 
 
