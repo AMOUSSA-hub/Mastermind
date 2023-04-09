@@ -22,31 +22,10 @@
             android:layout_gravity="start|top"
             android:layout_margin="16dp"
             android:text="Retour"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="@color/teal_200"/>
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-
-            >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="option case vide:"
-            android:textColor="@color/white"
-            />
-            <TextView
-                android:id="@+id/info_caseVide"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NONE"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                />
-        </LinearLayout>
 
     </LinearLayout>
 
@@ -54,27 +33,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:layout_margin="0dp"
         android:gravity="top">
 
         <TextView
-            android:paddingTop="40dp"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Master"
+            android:text="Réglages"
             android:textColor="@color/white"
             android:textAlignment="center"
             android:textSize="50dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mind"
-            android:textSize="50dp"
-            android:textColor="@color/teal_700"
-            android:textAlignment="center"   />
+
 
     </LinearLayout>
 
@@ -84,26 +57,24 @@
         android:layout_weight="3"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_margin="0dp">
-
-        <Button
-            android:id="@+id/btn_JRobot"
+       >
+        <CheckBox
+            android:id="@+id/checkbox_cerlceBlanc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/teal_200"
-            android:paddingHorizontal="80dp"
-            android:text="Jouer contre un robot"
-            android:textSize="20dp" />
+
+            android:text="Jouer avec la case vide"
+            android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/btn_JHotSeat"
-            android:layout_margin="15dp"
+            android:id="@+id/submit_settings"
             android:layout_width="wrap_content"
-            android:layout_height="75dp"
-            android:backgroundTint="@color/teal_200"
-            android:paddingHorizontal="70dp"
-            android:text="Hot seat (2 joueurs)"
-            android:textSize="20dp" />
+            android:layout_height="wrap_content"
+
+            android:text="@string/confirm_button"
+            android:textSize="20sp"
+            android:backgroundTint="@color/teal_200"/>
+
 
     </LinearLayout>
 

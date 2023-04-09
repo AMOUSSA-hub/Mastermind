@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 public class GameModeActivity extends AppCompatActivity {
 
@@ -29,9 +30,15 @@ public class GameModeActivity extends AppCompatActivity {
 
         if (bundle != null) {
 
-            if(bundle.getBoolean("caseVide")){
-                ((CheckBox) findViewById(R.id.checkbox_cerlceBlanc)).setChecked(true);
+          boolean emptyCase = bundle.getBoolean("caseVide");
+
+            if(emptyCase){
+                ((TextView) findViewById(R.id.info_caseVide)).setText("Activé");
             }
+            else{
+                ((TextView) findViewById(R.id.info_caseVide)).setText("Désactivé");
+            }
+            this.getIntent().putExtra("caseVide",emptyCase);
         }
 
 

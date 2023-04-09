@@ -6,4 +6,5 @@
     <string name="part2_text_title">Mind</string>
     <string name="confirm_button">Valider</string>
     <string name="clear">effacer tout</string>
+    <string name="settings">reglages</string>
 </resources>
