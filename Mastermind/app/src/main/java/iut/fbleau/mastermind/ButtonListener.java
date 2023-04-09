@@ -106,12 +106,17 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
 
         else if(view.getId() == R.id.submit_settings){
             Intent intent = new Intent(activity, MainActivity.class);
-
             intent.putExtra("caseVide",this.cb.isChecked());
-
-
             activity.setResult(Activity.RESULT_OK,intent);
+            activity.finish();
 
+        }
+
+        else if(view.getId() == R.id.button_retour_settings){
+
+            Intent intent = new Intent(activity, MainActivity.class);
+            intent.putExtra("caseVide",false);
+            activity.setResult(Activity.RESULT_OK,intent);
             activity.finish();
 
         }

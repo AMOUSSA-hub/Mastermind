@@ -22,7 +22,9 @@
             android:layout_gravity="start|top"
             android:layout_margin="16dp"
             android:text="Retour"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="@color/teal_200"
+            android:textColor="@color/black"/>
 
 
         <LinearLayout
@@ -91,6 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/teal_200"
+            android:textColor="@color/black"
             android:paddingHorizontal="80dp"
             android:text="Jouer contre un robot"
             android:textSize="20dp" />
@@ -101,6 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="75dp"
             android:backgroundTint="@color/teal_200"
+            android:textColor="@color/black"
             android:paddingHorizontal="70dp"
             android:text="Hot seat (2 joueurs)"
             android:textSize="20dp" />

@@ -7,22 +7,23 @@ import android.view.View;
 
 public class TactileListener implements View.OnTouchListener {
 
-    public GestureDetector GD;
+
 
     public TactileListener(Activity act){
 
-        GD =  new GestureDetector(new GameTapListener(act));
 
     }
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
 
-        System.out.println("tap");
+        if(motionEvent.getActionMasked() == MotionEvent.ACTION_DOWN) {
+            System.out.println("tap");
 
-        GD.onTouchEvent(motionEvent);
 
-        return true;
+            return true;
+        }
+        return false;
     }
 
 

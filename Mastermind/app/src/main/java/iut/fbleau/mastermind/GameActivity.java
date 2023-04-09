@@ -1,6 +1,7 @@
 package iut.fbleau.mastermind;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -66,15 +67,23 @@ public class GameActivity extends Activity {
     public void onBackPressed() {
         this.finishAffinity();
         Intent intent;
-        if(ContreRobot){
-            intent = new Intent(this, GameModeActivity.class);
-        }
-        else{
-            intent = new Intent(this, ChoixCouleurActivity.class);
-        }
-        intent.putExtra("caseVide",isCercleBlanc);
+
+    if(p.isGameFinished()){
+        intent = new Intent(this, MainActivity.class);
+        intent.putExtra("caseVide", isCercleBlanc);
         this.startActivity(intent);
 
+    }else {
+
+
+        if (ContreRobot) {
+            intent = new Intent(this, GameModeActivity.class);
+        } else {
+            intent = new Intent(this, ChoixCouleurActivity.class);
+        }
+        intent.putExtra("caseVide", isCercleBlanc);
+        this.startActivity(intent);
+    }
 
     }
     @Override
@@ -124,6 +133,7 @@ public class GameActivity extends Activity {
 
                 TextView TV = new TextView(this);
 
+
                 TV.setText("Bravo! Vous avez gagné avec un total de \n" +p.getTry()+" essais");
                 TV.setTextSize(15f);
                 TV.setTypeface(null, Typeface.BOLD);
@@ -140,6 +150,8 @@ public class GameActivity extends Activity {
          // Affichage de la boîte de dialogue
 
          builder.show();
+
+
 
 
 
@@ -179,6 +191,9 @@ public class GameActivity extends Activity {
      public Plateau getPlateau(){
         return this.p;
      }
+
+
+
 
 
 

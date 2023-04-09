@@ -26,7 +26,9 @@
             android:layout_gravity="center|top"
             android:layout_marginTop="16dp"
             android:text="Cliquez ici pour afficher votre code secret"
-            android:textSize="20dp">
+            android:textSize="20dp"
+            android:backgroundTint="@color/teal_200"
+            android:textColor="@color/black">
 
 
         </Button>
@@ -197,6 +199,8 @@
         android:text="@string/Win"
         android:textSize="20sp"
         android:layout_margin="16dp"
+        android:backgroundTint="@color/teal_200"
+        android:textColor="@color/black"
         />
 </LinearLayout>
 
@@ -251,6 +255,8 @@
                 android:text="@string/confirm_button"
                 android:textSize="20sp"
                 android:layout_margin="16dp"
+                android:backgroundTint="@color/teal_200"
+                android:textColor="@color/black"
                 />
 
         </LinearLayout>

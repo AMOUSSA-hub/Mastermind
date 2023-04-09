@@ -19,6 +19,12 @@ public class SettingsActivity extends Activity {
         CheckBox empty_case = (CheckBox) findViewById(R.id.checkbox_cerlceBlanc) ;
         btnSubmit.setOnClickListener(new ButtonListener(empty_case,this));
 
+        //bouton retour
+
+        Button btnRetour = (Button) findViewById(R.id.button_retour_settings);
+        btnRetour.setOnClickListener(new ButtonListener(empty_case,this));
+
+
 
     }
 
