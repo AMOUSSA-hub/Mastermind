@@ -164,21 +164,60 @@ public class GameActivity extends Activity {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.HORIZONTAL);
         layout.setGravity(Gravity.CENTER); // Centrer les éléments
+        ;
 
-        TextView TV = new TextView(this);
 
-        TV.setText("Dommage vous avez perdu!");
-        TV.setTextSize(15f);
-        TV.setTypeface(null, Typeface.BOLD);
-        TV.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
-        // Ajout du cercle au layout
-        layout.addView(TV);
+
+        //combinaison gagnante
+        for (int i = 0; i < 4; i++) {
+            View cercle = new View(this);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    50, // Largeur
+                    50 // Hauteur
+            );
+            params.setMargins(5, 5, 5, 5); // Marges autour du cercle
+
+            cercle.setLayoutParams(params);
+
+            // Attribution de la couleur en fonction de la valeur dans le tableau
+            switch (code[i]) {
+                case 0:
+                    cercle.setBackgroundResource(R.drawable.circle_gray);
+                    break;
+                case 1:
+                    cercle.setBackgroundResource(R.drawable.blue_circle);
+                    break;
+                case 2:
+                    cercle.setBackgroundResource(R.drawable.green_circle);
+                    break;
+                case 3:
+                    cercle.setBackgroundResource(R.drawable.red_circle);
+                    break;
+                case 4:
+                    cercle.setBackgroundResource(R.drawable.yellow_circle);
+                    break;
+                case 5:
+                    cercle.setBackgroundResource(R.drawable.white_circle);
+                    break;
+                case 6:
+                    cercle.setBackgroundResource(R.drawable.black_circle);
+                    break;
+                default:
+                    cercle.setBackgroundResource(R.drawable.circle_gray);
+            }
+
+            // Ajout du cercle au layout
+            layout.addView(cercle);
+        }
+
+
 
 
         // Création de la boîte de dialogue
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setView(layout);
+        builder.setTitle("Vous avez perdu dommage. Voici le code secret:");
 
         // Affichage de la boîte de dialogue
 
