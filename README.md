@@ -1,2 +1,3 @@
-# Application mobile Android du jeu du Mastermind
+# Jeu mobile Mastermind
+Application mobile du jeu du Mastermind sous Android
 
