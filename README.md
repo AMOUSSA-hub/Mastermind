@@ -1,2 +1,2 @@
-# SAE41_2022
+# Application mobile Android du jeu du Mastermind
 
