@@ -68,22 +68,11 @@ public class GameActivity extends Activity {
         this.finishAffinity();
         Intent intent;
 
-    if(p.isGameFinished()){
         intent = new Intent(this, MainActivity.class);
         intent.putExtra("caseVide", isCercleBlanc);
         this.startActivity(intent);
 
-    }else {
 
-
-        if (ContreRobot) {
-            intent = new Intent(this, GameModeActivity.class);
-        } else {
-            intent = new Intent(this, ChoixCouleurActivity.class);
-        }
-        intent.putExtra("caseVide", isCercleBlanc);
-        this.startActivity(intent);
-    }
 
     }
     @Override
@@ -105,6 +94,8 @@ public class GameActivity extends Activity {
                     System.out.println("gagné");
                     this.p.setGameFinished();
                     this.Victory();
+
+
                 }
 
 

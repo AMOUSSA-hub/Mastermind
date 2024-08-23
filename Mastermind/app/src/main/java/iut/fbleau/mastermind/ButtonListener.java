@@ -36,10 +36,7 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         Log.d("click","click sur bouton de source"+this.button);
 
-        if(view.getId() == R.id.btn_quitter1){
-            ((Activity) view.getContext()).finishAffinity();
-        }
-        else if(view.getId() == R.id.btn_jouer1){
+       if(view.getId() == R.id.btn_jouer1){
             Intent intent = new Intent(activity, GameModeActivity.class);
             intent.putExtra("caseVide",activity.getIntent().getBooleanExtra("caseVide",false));
             activity.startActivity(intent);
@@ -86,7 +83,7 @@ public class ButtonListener extends AppCompatActivity implements View.OnClickLis
                 int[] choix = ((ChoixCouleurActivity) activity).choix;
                 if(choix[0]==0||choix[1]==0||choix[2]==0||choix[3]==0){
                     Log.d("Cercle","3"+choix[0]+choix[1]+choix[2]+choix[3]);
-                    Toast.makeText(activity, "L'utilisation des cases vides sont désactivées", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "L'utilisation des cases vides est  désactivé", Toast.LENGTH_SHORT).show();
                     return;
                 }
             }

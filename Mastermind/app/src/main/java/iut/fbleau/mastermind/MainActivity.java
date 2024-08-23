@@ -2,11 +2,16 @@ package iut.fbleau.mastermind;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ *
+ *Page d'accueil de l'application
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static boolean caseVide =false ;
@@ -20,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         //bouton quitter
         Button btnQuitter = (Button) findViewById(R.id.btn_quitter1);
-        btnQuitter.setOnClickListener(new ButtonListener(btnQuitter,this));
+        btnQuitter.setOnClickListener( e-> {this.finish();});
 
         //bouton jouer
         Button btnJouer = (Button) findViewById(R.id.btn_jouer1);
@@ -40,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Récupération des paramètres choisis (option case vides...)
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -57,6 +68,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
      }
+    @Override
+    public void onBackPressed() {
+        this.finish();
+        System.exit(0);
+
+    }
 
 
 

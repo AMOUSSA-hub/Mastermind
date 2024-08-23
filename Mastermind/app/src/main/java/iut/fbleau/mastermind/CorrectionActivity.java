@@ -2,6 +2,7 @@ package iut.fbleau.mastermind;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -148,6 +149,17 @@ public class CorrectionActivity extends AppCompatActivity {
         else {
             return R.drawable.black_circle;
         }
+    }
+
+    public void onBackPressed() {
+        this.finishAffinity();
+        Intent intent;
+
+        intent = new Intent(this, MainActivity.class);
+        this.startActivity(intent);
+
+
+
     }
 
 

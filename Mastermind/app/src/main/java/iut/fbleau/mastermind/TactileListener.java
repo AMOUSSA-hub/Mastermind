@@ -16,14 +16,9 @@ public class TactileListener implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
+        System.out.println("tap");
 
-        if(motionEvent.getActionMasked() == MotionEvent.ACTION_DOWN) {
-            System.out.println("tap");
-
-
-            return true;
-        }
-        return false;
+        return true;
     }
 
 

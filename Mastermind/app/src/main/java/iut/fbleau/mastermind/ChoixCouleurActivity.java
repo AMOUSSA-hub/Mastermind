@@ -155,9 +155,14 @@ public class ChoixCouleurActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         this.finishAffinity();
-        Intent intent = new Intent(this, GameModeActivity.class);
-        intent.putExtra("caseVide",isCercleBlanc);
+        Intent intent;
+
+        intent = new Intent(this, MainActivity.class);
+        intent.putExtra("caseVide", isCercleBlanc);
         this.startActivity(intent);
+
+
+
     }
 
 

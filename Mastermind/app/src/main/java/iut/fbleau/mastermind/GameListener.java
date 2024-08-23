@@ -33,7 +33,7 @@ public class GameListener implements View.OnClickListener {
                 int[] supposition = activity.p.giveLigne(activity.isCercleBlanc);
 
                 if (supposition == null) {
-                    Toast.makeText(activity, "L'utilisation des cases vides sont désactivées", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "L'utilisation des cases vides est désactivé", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (activity.ContreRobot) {
